@@ -1,0 +1,20 @@
+--index-url https://download.pytorch.org/whl/cu126
+--extra-index-url https://pypi.org/simple
+ninja
+packaging
+ # use torch > 2.6 to avoid error, see https://github.com/pytorch/pytorch/issues/134560
+torch==2.7.1+cu126
+torchvision==0.22.1+cu126
+torchaudio==2.7.1+cu126
+transformers==4.55.0
+peft==0.17.0
+triton==3.3.1 # for the tl.gather function
+huggingface_hub==0.34.4 # specified the version to avoid datasets api mismatch with huggingface hub
+datasets==3.5.0
+zstandard==0.23.0 # for datasets
+numpy==1.26.4 # degrade the version for transformers
+sentencepiece==0.2.0
+protobuf==5.29.4
+einops==0.8.1
+megatron-core==0.12.0 # for mamba2-8b
+tensorboard==2.20.0 # for transformer trainer

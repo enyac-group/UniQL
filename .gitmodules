@@ -1,0 +1,18 @@
+[submodule "3rdparty/mamba"]
+	path = 3rdparty/mamba
+	url = https://github.com/state-spaces/mamba.git
+[submodule "3rdparty/causal-conv1d"]
+	path = 3rdparty/causal-conv1d
+	url = https://github.com/Dao-AILab/causal-conv1d.git
+[submodule "3rdparty/flash-attention"]
+	path = 3rdparty/flash-attention
+	url = https://github.com/Dao-AILab/flash-attention.git
+[submodule "3rdparty/lm-evaluation-harness"]
+	path = 3rdparty/lm-evaluation-harness
+	url = https://github.com/EleutherAI/lm-evaluation-harness.git
+[submodule "3rdparty/fast-hadamard-transform"]
+	path = 3rdparty/fast-hadamard-transform
+	url = https://github.com/Dao-AILab/fast-hadamard-transform.git
+[submodule "3rdparty/peft"]
+	path = 3rdparty/peft
+	url = https://github.com/huggingface/peft.git
