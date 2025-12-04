@@ -131,7 +131,8 @@ For this example, the sorted model will be stored at this path `pretrained_model
 CUDA_VISIBLE_DEVICES=0 bash scripts/run_masked_finetuning.sh ut-enyac/Llama-3.1-8B-uniql-1.0
 ```
 If the pruning ratios are not found under `compress/output/{model name}`, the script will run `compress/get_layer_ratios.py` first. For example, the layerwise pruning ratios will be stored at `compress/outputs/llama-3.1-8b-uniql-1.0/`.
-For this example, the fine-tuned model will be stored at this path `pretrained_models/ut-enyac/Llama-3.1-8B-uniql-1.0-masked-lora-rft`. 
+
+The fine-tuned model will be stored at this path `pretrained_models/ut-enyac/Llama-3.1-8B-uniql-1.0-masked-lora-rft`. 
 
 
 ## Quantize UniQL models
