@@ -130,7 +130,8 @@ For this example, the sorted model will be stored at this path `pretrained_model
 ```bash
 CUDA_VISIBLE_DEVICES=0 bash scripts/run_masked_finetuning.sh ut-enyac/Llama-3.1-8B-uniql-1.0
 ```
-For this example, the fine-tuned model will be stored at this path `pretrained_models/ut-enyac/Llama-3.1-8B-uniql-1.0-masked-lora-rft`
+If the pruning ratios are not found under `compress/output/{model name}`, the script will run `compress/get_layer_ratios.py` first. For example, the layerwise pruning ratios will be stored at `compress/outputs/llama-3.1-8b-uniql-1.0/`.
+For this example, the fine-tuned model will be stored at this path `pretrained_models/ut-enyac/Llama-3.1-8B-uniql-1.0-masked-lora-rft`. 
 
 
 ## Quantize UniQL models
@@ -145,13 +146,13 @@ For this example, the low-rank model will be stored at this path `pretrained_mod
 ### Zero-shot evaluation
 ```bash
 # standard zero-shot
-CUDA_VISIBLE_DEVICES=0 python main.py ut-enyac/Llama-3.1-8B-uniql-1.0-masked-lora-rft-w4a16 --batch_size 16 --eval --fewshot 0 --task_list hellaswag,arc_easy,arc_challenge,piqa,winogrande --pretrained_dir ./pretrained_models/  --layer_ratio_config ./compress/outputs/llama-3.1-8b/layerwise_eps-0.1_ratio-0.85.json
+CUDA_VISIBLE_DEVICES=0 python main.py ut-enyac/Llama-3.1-8B-uniql-1.0-masked-lora-rft-w4a16 --batch_size 16 --eval --fewshot 0 --task_list hellaswag,arc_easy,arc_challenge,piqa,winogrande --pretrained_dir ./pretrained_models/  --layer_ratio_config ./compress/outputs/llama-3.1-8b-uniql-1.0/layerwise_eps-0.1_ratio-0.85.json
 ```
 
 ### Five-shot evaluation
 ```bash
 # we use batch size 8 to save memory
-CUDA_VISIBLE_DEVICES=0 python main.py ut-enyac/Llama-3.1-8B-uniql-1.0-masked-lora-rft-w4a16 --batch_size 8 --eval --fewshot 5 --task_list mmlu --pretrained_dir ./pretrained_models/ --layer_ratio_config ./compress/outputs/llama-3.1-8b/layerwise_eps-0.1_ratio-0.85.json
+CUDA_VISIBLE_DEVICES=0 python main.py ut-enyac/Llama-3.1-8B-uniql-1.0-masked-lora-rft-w4a16 --batch_size 8 --eval --fewshot 5 --task_list mmlu --pretrained_dir ./pretrained_models/ --layer_ratio_config ./compress/outputs/llama-3.1-8b-uniql-1.0/layerwise_eps-0.1_ratio-0.85.json
 ```
 
 ## Profiling
