@@ -44,7 +44,7 @@ run_recovery_finetune() {
         --calib_seqlen 256 \
         --pretrained_dir pretrained_models/ \
         --lora \
-        --uniql
+        --masked_rft
 }
 
 run_pipeline() {

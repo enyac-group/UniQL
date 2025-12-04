@@ -202,14 +202,14 @@ def main(args):
             }
 
     callbacks = []
-    if args.uniql:
-        logger.info("Using uniqlw one-pass fine-tuning")
+    if args.masked_rft:
+        logger.info("Using masked one-pass fine-tuning")
         layer_ratio_config_dict = get_layer_ratio_config(model_name, eps=0.1)
         # Set masked_forward as the default forward function
         for name, module in model.named_modules():
             if hasattr(module, 'masked_forward'):
                 module.forward = module.masked_forward
-        # Add the random layer ratio callback for uniql training
+        # Add the random layer ratio callback for masked fine-tuning
         model_helper = ModelHelperRegistry[model_type](model_config=model.config)
         if isinstance(model, PeftModelForCausalLM):
             # PeftModelForCausalLM (model) -> LoraModel (base_model) -> LlamaForCausalLM (model)
@@ -232,11 +232,11 @@ def main(args):
     
     # set output dir
     current_file_dir = os.path.dirname(os.path.abspath(__file__))
-    if args.lora and args.uniql:
+    if args.lora and args.masked_rft:
         output_dir = os.path.join(current_file_dir, "outputs", model_name, "masked-lora-rft")
     elif args.lora:
         output_dir = os.path.join(current_file_dir, "outputs", model_name, "lora-rft")
-    elif args.uniql:
+    elif args.masked_rft:
         output_dir = os.path.join(current_file_dir, "outputs", model_name, "masked-rft")
     else:
         output_dir = os.path.join(current_file_dir, "outputs", model_name, "rft")
@@ -314,12 +314,12 @@ def main(args):
     
     # store the model
     if args.pretrained_dir:
-        if args.lora and args.uniql:
-            model_name = get_saved_model_name(args.model_repo, postfixs=["lora-rft-uniql"])
+        if args.lora and args.masked_rft:
+            model_name = get_saved_model_name(args.model_repo, postfixs=["masked-lora-rft"])
         elif args.lora:
             model_name = get_saved_model_name(args.model_repo, postfixs=["lora-rft"])
-        elif args.uniql:
-            model_name = get_saved_model_name(args.model_repo, postfixs=["rft-uniql"])
+        elif args.masked_rft:
+            model_name = get_saved_model_name(args.model_repo, postfixs=["masked-rft"])
         else:
             model_name = get_saved_model_name(args.model_repo, postfixs=["rft"])
         model_dir = os.path.join(args.pretrained_dir, "ut-enyac", model_name)
@@ -360,7 +360,7 @@ if __name__ == "__main__":
     # https://github.com/huggingface/peft/issues/2556, mamba out_proj is excluded by default. We comment out the assertion in the peft library.
     parser.add_argument('--lora_target_modules', type=str, default=
                         "q_proj,k_proj,v_proj,o_proj,in_proj,out_proj,gate_proj,up_proj,down_proj", help='lora target modules')
-    parser.add_argument('--uniql', action='store_true', help='use uniql single-pass fine-tuning')
+    parser.add_argument('--masked_rft', action='store_true', help='use one-pass masked fine-tuning')
 
     args = parser.parse_args()
     if args.verbose:
