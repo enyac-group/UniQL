@@ -2,7 +2,7 @@
 
 # Check if model name argument is provided
 if [ $# -eq 0 ]; then
-    echo "Usage: $0 <model_name|ALL>"
+    echo "Usage: $0 <model_name>"
     echo "Example models:"
     echo "  Original models examples:"
     echo "    Qwen/Qwen2.5-7B"
