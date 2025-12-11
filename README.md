@@ -77,6 +77,12 @@ export FAST_HADAMARD_TRANSFORM_FORCE_BUILD=TRUE
 pip install 3rdparty/fast-hadamard-transform  --no-build-isolation
 ```
 
+- Install `peft` from our commit:
+```bash
+# we fix peft for mamba blocks
+pip install 3rdparty/peft  --no-build-isolation
+```
+
 - (Optional) Build `causal_conv1d` from source (or you can install from the prebuilt wheels):
 ```bash
 # build from the local clone

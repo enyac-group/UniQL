@@ -15,4 +15,4 @@
 	url = https://github.com/Dao-AILab/fast-hadamard-transform.git
 [submodule "3rdparty/peft"]
 	path = 3rdparty/peft
-	url = https://github.com/huggingface/peft.git
+	url = https://github.com/enyac-group/peft.git
