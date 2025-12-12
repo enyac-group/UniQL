@@ -113,7 +113,7 @@ pip install -e .  --no-build-isolation
 
 ## Supported models
 
-The quantized models are availalbe on [Hugging Face](https://huggingface.co/collections/ut-enyac/uniql) 🤗 .
+The quantized models are available on [Hugging Face](https://huggingface.co/collections/ut-enyac/uniql) 🤗.
 
 ### Transformers
  - [x] Qwen/Qwen2.5-7B
