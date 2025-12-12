@@ -11,8 +11,10 @@
 [Diana Marculescu](https://users.ece.utexas.edu/~dianam/)
 
 <!-- ![UniQL CI](https://github.com/enyac-group/UniQL/actions/workflows/uniql-ci.yml/badge.svg) -->
-<!-- [![UniQL arXiv](https://img.shields.io/badge/UniQL-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2503.22879) -->
-<!-- [![UniQL Page](https://img.shields.io/badge/UniQL-Website-orange)](https://hychiang.info/projects/uniql/) -->
+[![UniQL arXiv](https://img.shields.io/badge/UniQL-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2512.03383)
+[![UniQL Page](https://img.shields.io/badge/UniQL-Website-orange)](https://hychiang.info/projects/uniql/)
+[![Models](https://img.shields.io/badge/UniQL-Models-gold)](https://huggingface.co/collections/ut-enyac/uniql)
+
 
 <p align="center">
   <img src="misc/logo.png" alt="UniQL" width="200"/>
@@ -110,6 +112,8 @@ pip install -e .  --no-build-isolation
 
 
 ## Supported models
+
+The quantized models are availalbe on [Hugging Face](https://huggingface.co/collections/ut-enyac/uniql) 🤗 .
 
 ### Transformers
  - [x] Qwen/Qwen2.5-7B
