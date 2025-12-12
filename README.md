@@ -214,12 +214,12 @@ python convert_mamba2_8b_to_hf.py \
 ```
 
 
-<!-- ## Citation
+## Citation
 ```
-@inproceedings{chiang2025uniql,
+@article{chiang2025uniql,
   title = {UniQL: Unified Quantization and Low-rank Compression for Adaptive Edge LLMs},
   author = {Chiang, Hung-Yueh and Chang, Chi-Chih and Lu, Yu-Chen and Lin, Chien-Yu and Wu, Kai-Chiang and Abdelfattah, Mohamed S. and Marculescu, Diana},
-  booktitle = {Forty-Second International Conference on Machine Learning (ICML)},
-  year = {2025}
+  journal = {arXiv preprint arXiv:2512.03383},
+  year = {2025},
 }
-```` -->
+````
